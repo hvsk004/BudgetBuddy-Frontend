@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
@@ -32,11 +33,14 @@ export default function Signup() {
 
     try {
       // Send POST request with form data
-      const response = await axios.post("http://localhost:3000/signup", {
-        name: `${formData.firstName} ${formData.lastName}`,
-        email: formData.email,
-        password: formData.password,
-      });
+      const response = await axios.post(
+        "https://budgetbuddy-u7zf.onrender.com" + "/signup",
+        {
+          name: `${formData.firstName} ${formData.lastName}`,
+          email: formData.email,
+          password: formData.password,
+        }
+      );
 
       console.log("Server response:", response.data);
       // Reset form state
@@ -107,6 +111,7 @@ export default function Signup() {
                   id="password"
                   name="password"
                   type="password"
+                  required
                   value={formData.password}
                   onChange={handleChange}
                   placeholder="Your Password"
@@ -115,9 +120,9 @@ export default function Signup() {
               <Button type="submit" className="w-full">
                 Create an account
               </Button>
-              <Button variant="outline" className="w-full">
+              {/* <Button variant="outline" className="w-full">
                 Sign up with Google
-              </Button>
+              </Button> */}
             </div>
             <div className="mt-4 text-center text-sm">
               Already have an account?{" "}

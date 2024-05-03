@@ -41,7 +41,7 @@ export default function TableRowCustom(props) {
       setIsDeleting(true);
       // Use props.eId directly in the request
       await axios.put(
-        `http://localhost:3000/expense/deleteExpense`,
+        "https://budgetbuddy-u7zf.onrender.com" + "/expense/deleteExpense",
         { eId: props.eId }, // Include eId in the request body
         {
           withCredentials: true,

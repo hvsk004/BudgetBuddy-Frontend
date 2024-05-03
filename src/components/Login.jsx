@@ -9,6 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 export function LoginForm() {
@@ -20,7 +21,7 @@ export function LoginForm() {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/login",
+        "https://budgetbuddy-u7zf.onrender.com" + "/login",
         { email, password },
         { withCredentials: true }
       );

@@ -1,6 +1,7 @@
 import { PieChart, Pie, Sector, Cell } from "recharts";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+
 const data = [
   { name: "Group A", value: 400 },
   { name: "Group B", value: 300 },
@@ -17,7 +18,7 @@ export default function DonughtChart() {
     const fetchExpenses = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/expense/getExpenses",
+          "https://budgetbuddy-u7zf.onrender.com" + "/expense/getExpenses",
           {
             withCredentials: true, // Include cookies in the request
           }

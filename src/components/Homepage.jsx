@@ -11,6 +11,7 @@ import {
   BadgeIndianRupee,
   Car,
 } from "lucide-react";
+
 import TableRowCustom from "./TableRow";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -66,7 +67,7 @@ export default function Homepage() {
     const fetchExpenses = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/expense/getExpenses",
+          "https://budgetbuddy-u7zf.onrender.com" + "/expense/getExpenses",
           {
             withCredentials: true, // Include cookies in the request
           }

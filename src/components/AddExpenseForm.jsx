@@ -24,7 +24,7 @@ export function FloatingForm() {
     try {
       setLoading(true); // Set loading state to true when submitting
       const response = await axios.post(
-        "http://localhost:3000/expense/createExpense",
+        "https://budgetbuddy-u7zf.onrender.com" + "/expense/createExpense",
         { expense },
         {
           withCredentials: true, // Include cookies in the request

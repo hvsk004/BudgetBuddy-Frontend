@@ -18,7 +18,7 @@ export default function BarGraph() {
     const fetchExpenses = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/expense/getExpenses",
+          "https://budgetbuddy-u7zf.onrender.com" + "/expense/getExpenses",
           {
             withCredentials: true, // Include cookies in the request
           }

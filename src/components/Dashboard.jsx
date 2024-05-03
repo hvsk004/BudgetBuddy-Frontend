@@ -10,6 +10,7 @@ import {
   ReceiptIndianRupee,
   BadgeIndianRupee,
 } from "lucide-react";
+
 import TableRowCustom from "./TableRow";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -64,7 +65,7 @@ export function Dashboard() {
     const fetchExpenses = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/expense/getExpenses",
+          "https://budgetbuddy-u7zf.onrender.com" + "/expense/getExpenses",
           {
             withCredentials: true, // Include cookies in the request
           }
@@ -288,16 +289,19 @@ export function Dashboard() {
                       </TableRow>
                     </TableHeader>
                     <TableBody>
-                      {expenses.map((expense) => (
-                        <TableRowCustom
-                          eId={expense.eId}
-                          key={expense.eId}
-                          description={expense.description}
-                          category={expense.category}
-                          amount={expense.amount}
-                          date={expense.date}
-                        />
-                      ))}
+                      {expenses
+                        .slice()
+                        .reverse()
+                        .map((expense) => (
+                          <TableRowCustom
+                            eId={expense.eId}
+                            key={expense.eId}
+                            description={expense.description}
+                            category={expense.category}
+                            amount={expense.amount}
+                            date={expense.date}
+                          />
+                        ))}
                     </TableBody>
                   </Table>
                 </CardContent>
@@ -331,6 +335,8 @@ export function Dashboard() {
                         .filter((expense) =>
                           expense.category.toLowerCase().includes("food")
                         )
+                        .slice()
+                        .reverse()
                         .map((expense) => (
                           <TableRowCustom
                             eId={expense.eId}
@@ -374,6 +380,8 @@ export function Dashboard() {
                         .filter((expense) =>
                           expense.category.toLowerCase().includes("travel")
                         )
+                        .slice()
+                        .reverse()
                         .map((expense) => (
                           <TableRowCustom
                             eId={expense.eId}
@@ -414,6 +422,8 @@ export function Dashboard() {
                     </TableHeader>
                     <TableBody>
                       {expenses
+                        .slice()
+                        .reverse()
                         .filter(
                           (expense) =>
                             !expense.category.toLowerCase().includes("food") &&
@@ -462,6 +472,8 @@ export function Dashboard() {
                         .filter((expense) =>
                           expense.category.toLowerCase().includes("clothing")
                         )
+                        .slice()
+                        .reverse()
                         .map((expense) => (
                           <TableRowCustom
                             eId={expense.eId}
